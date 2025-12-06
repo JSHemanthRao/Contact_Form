@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-    // IF VALID → INSERT INTO DB
     if (!$error) {
 
         $sql = "INSERT INTO contact_form (name, email, phone, message)
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->SMTPAuth = true;
 
                 $mail->Username = 'hemanthraojamena@gmail.com';
-                $mail->Password = 'kqagnagpahrdjgxv'; // App password
+                $mail->Password = 'kqagnagpahrdjgxv'; 
 
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
@@ -84,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email_msg = "Email failed: {$mail->ErrorInfo}";
             }
 
-            // SUCCESS BOOTSTRAP ALERT
             echo "
             <div class='alert alert-success alert-dismissible fade show' role='alert'>
               Form submitted successfully! $email_msg
@@ -93,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </button>
             </div>";
 
-            // Clear form values
+
             $name = $email = $phone = $message = "";
 
         } else {
